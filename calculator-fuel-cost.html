@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Is carpooling worth it for fuel savings?","acceptedAnswer":{"@type":"Answer","text":"Yes, carpooling can cut your personal fuel cost significantly when split with even one other commuter on a similar route."}},
     {"@type":"Question","name":"Should I switch to an electric or hybrid vehicle to save on fuel?","acceptedAnswer":{"@type":"Answer","text":"If you drive long distances regularly, an electric or hybrid vehicle can substantially lower running costs over time, though the upfront cost is higher."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -159,6 +160,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>

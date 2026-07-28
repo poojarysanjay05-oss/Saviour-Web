@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Should I cut out dining out completely?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily \u2014 dining out has social value too. The goal is usually to be intentional about frequency rather than eliminating it entirely."}},
     {"@type":"Question","name":"How do delivery fees affect dining out costs?","acceptedAnswer":{"@type":"Answer","text":"Delivery fees, platform fees and tips can add 15-25% on top of the food cost, making delivery meaningfully pricier than dining in or takeaway."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -158,6 +159,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>

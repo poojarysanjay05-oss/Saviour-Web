@@ -21,6 +21,7 @@
     {"@type":"Question","name":"What is HRA?","acceptedAnswer":{"@type":"Answer","text":"HRA (House Rent Allowance) is a component of salary meant to cover rental housing costs, and is partially or fully tax-exempt if you live in rented accommodation."}},
     {"@type":"Question","name":"Is this breakdown the same for every company?","acceptedAnswer":{"@type":"Answer","text":"No, exact percentages vary by employer. This tool uses common industry averages for estimation purposes."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -165,6 +166,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>

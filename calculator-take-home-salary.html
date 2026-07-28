@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Which tax regime does this calculator use?","acceptedAnswer":{"@type":"Answer","text":"This calculator estimates tax using India's new tax regime slabs with the standard deduction, which is the default option for most salaried employees."}},
     {"@type":"Question","name":"Is this an exact figure?","acceptedAnswer":{"@type":"Answer","text":"This is an estimate for planning purposes \u2014 your exact in-hand salary may vary based on your employer's specific allowance structure and any additional deductions."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -178,6 +179,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>

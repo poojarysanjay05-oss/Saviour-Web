@@ -21,6 +21,7 @@
     {"@type":"Question","name":"What if my expenses exceed my income?","acceptedAnswer":{"@type":"Answer","text":"If expenses exceed income, look for reducible categories first \u2014 subscriptions, dining out, and discretionary spending \u2014 before cutting fixed costs."}},
     {"@type":"Question","name":"How often should I update my budget?","acceptedAnswer":{"@type":"Answer","text":"Review your budget every month, and revisit it fully whenever your income or a major expense changes."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -182,6 +183,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>

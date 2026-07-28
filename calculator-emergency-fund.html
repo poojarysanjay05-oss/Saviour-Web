@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Should I invest my emergency fund in stocks?","acceptedAnswer":{"@type":"Answer","text":"No, an emergency fund should not be invested in volatile assets like stocks since you may need it quickly and its value could drop when you need it most."}},
     {"@type":"Question","name":"How do I build an emergency fund quickly?","acceptedAnswer":{"@type":"Answer","text":"Automate a fixed monthly transfer, redirect windfalls like bonuses or tax refunds toward it, and pause non-essential spending until you hit your target."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -148,6 +149,9 @@ class Component extends DCLogic {
   }
 }
 
+</script>
+<script type="text/x-dc" data-dc-script>
+  new Component().attach(document.body);
 </script>
 </body>
 </html>
