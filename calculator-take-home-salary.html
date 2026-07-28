@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Which tax regime does this calculator use?","acceptedAnswer":{"@type":"Answer","text":"This calculator estimates tax using India's new tax regime slabs with the standard deduction, which is the default option for most salaried employees."}},
     {"@type":"Question","name":"Is this an exact figure?","acceptedAnswer":{"@type":"Answer","text":"This is an estimate for planning purposes \u2014 your exact in-hand salary may vary based on your employer's specific allowance structure and any additional deductions."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -34,6 +35,7 @@
   </style>
 </head>
 <body>
+<x-dc>
 <div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
     <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
@@ -179,5 +181,6 @@ class Component extends DCLogic {
 }
 
 </script>
+</x-dc>
 </body>
 </html>

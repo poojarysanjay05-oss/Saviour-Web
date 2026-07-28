@@ -21,6 +21,7 @@
     {"@type":"Question","name":"Are annual plans always cheaper?","acceptedAnswer":{"@type":"Answer","text":"Annual plans are usually 15-20% cheaper than paying monthly, but only worth it if you're confident you'll keep using the service for the full year."}},
     {"@type":"Question","name":"Should I share subscriptions with family?","acceptedAnswer":{"@type":"Answer","text":"Sharing family or group plans for streaming and cloud storage can cut your per-person cost significantly compared to individual plans."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -34,6 +35,7 @@
   </style>
 </head>
 <body>
+<x-dc>
 <div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
     <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
@@ -152,5 +154,6 @@ class Component extends DCLogic {
 }
 
 </script>
+</x-dc>
 </body>
 </html>

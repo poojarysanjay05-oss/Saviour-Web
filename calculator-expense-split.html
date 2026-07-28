@@ -21,6 +21,7 @@
     {"@type":"Question","name":"What if people ordered different amounts?","acceptedAnswer":{"@type":"Answer","text":"For itemized splitting where people ordered different amounts, each person should pay for their own items plus an equal share of shared items and tax."}},
     {"@type":"Question","name":"What is a fair tip percentage?","acceptedAnswer":{"@type":"Answer","text":"A tip of 10% is common for standard service, while 15-20% is typical for good service at sit-down restaurants."}}
   ]}</script>
+  <script src="./support.js"></script>
   <style>
     html,body{margin:0}
     body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
@@ -36,6 +37,7 @@
   </style>
 </head>
 <body>
+<x-dc>
 <div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
     <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
@@ -158,5 +160,6 @@ class Component extends DCLogic {
 }
 
 </script>
+</x-dc>
 </body>
 </html>
