@@ -3,32 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dining Out Calculator - What Eating Out Really Costs | Saviour</title>
-<meta name="description" content="Free dining out calculator. See how much eating out is costing you monthly and yearly, and how much cooking at home could save.">
-<link rel="canonical" href="https://www.saviourmoney.com/finance-tools/dining-out-calculator">
-<meta property="og:title" content="Dining Out Calculator | Saviour">
-<meta property="og:description" content="Track how much eating out is costing you.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-html,body{margin:0}
-body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
-::selection{background:#E6C763;color:#0D0D0F}
-a{text-decoration:none;color:inherit}
-a:hover{color:#E6C763}
-h1,h2,h3{letter-spacing:-0.04em;margin:0}
-input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:100px;background:rgba(255,255,255,0.12);outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:#E6C763;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
-input[type=number]{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
-input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-@media (prefers-reduced-motion:reduce){*{animation:none !important}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dining Out Calculator - What Eating Out Really Costs | Saviour</title>
+  <meta name="description" content="Free dining out calculator. See how much eating out is costing you monthly and yearly, and how much cooking at home could save.">
+  <link rel="canonical" href="https://www.saviourmoney.com/finance-tools/dining-out-calculator">
+  <meta property="og:title" content="Dining Out Calculator | Saviour">
+  <meta property="og:description" content="Track how much eating out is costing you.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Saviour","item":"https://www.saviourmoney.com/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://www.saviourmoney.com/finance-tools"},{"@type":"ListItem","position":3,"name":"Dining Out Calculator","item":"https://www.saviourmoney.com/finance-tools/dining-out-calculator"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Dining Out Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does the average person spend eating out?","acceptedAnswer":{"@type":"Answer","text":"Spending on eating out varies widely, but even 3-4 meals a week at moderate prices can add up to several thousand rupees a month."}},
+    {"@type":"Question","name":"How much can I save by cooking at home?","acceptedAnswer":{"@type":"Answer","text":"Cooking at home typically costs a fraction of eating out for the same meal, so shifting even a few meals a week to home cooking can meaningfully cut monthly spending."}},
+    {"@type":"Question","name":"Should I cut out dining out completely?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily \u2014 dining out has social value too. The goal is usually to be intentional about frequency rather than eliminating it entirely."}},
+    {"@type":"Question","name":"How do delivery fees affect dining out costs?","acceptedAnswer":{"@type":"Answer","text":"Delivery fees, platform fees and tips can add 15-25% on top of the food cost, making delivery meaningfully pricier than dining in or takeaway."}}
+  ]}</script>
+  <style>
+    html,body{margin:0}
+    body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
+    ::selection{background:#E6C763;color:#0D0D0F}
+    a{text-decoration:none;color:inherit}
+    a:hover{color:#E6C763}
+    h1,h2,h3{letter-spacing:-0.04em;margin:0}
+    input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:100px;background:rgba(255,255,255,0.12);outline:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:#E6C763;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+    input[type=number]{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
+    input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
 </head>
 <body>
 <div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
-  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+<header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
     <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
       <a href="Saviour Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
         <img src="uploads/Icon-App-1024x1024@1x.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
@@ -39,6 +48,84 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
         <a href="Saviour Homepage.dc.html#download" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px" style-hover="transform:translateY(-2px)">Download Free</a>
       </nav>
     </div>
+  </header>
+
+  <div style="max-width:820px;margin:0 auto;padding:18px 28px 0;display:flex;align-items:center;justify-content:space-between">
+    <a href="Saviour Homepage.dc.html" style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#8E8E93" style-hover="color:#fff"><span style="font-size:15px">&#8592;</span>Back</a>
+    <div style="font-size:13px;color:#6A6A70"><a href="Saviour Homepage.dc.html" style="color:#6A6A70" style-hover="color:#E6C763">Saviour</a> / <a href="Finance Tools.dc.html" style="color:#6A6A70" style-hover="color:#E6C763">Finance Tools</a> / Dining Out Calculator</div>
+  </div>
+
+  <main style="max-width:820px;margin:0 auto;padding:36px 28px 100px">
+    <h1 style="font-size:clamp(32px,5.4vw,52px);font-weight:800;line-height:1.05;margin-bottom:12px">Dining out calculator</h1>
+    <p style="font-size:17px;line-height:1.55;color:#A8A8AD;margin-bottom:36px;max-width:600px">See how much eating out is really costing you every month &mdash; and what cooking at home could save.</p>
+
+    <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px;margin-bottom:28px">
+      <div style="margin-bottom:22px">
+        <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:8px">Average cost per meal out</label>
+        <input type="number" value="{{ costPerMeal }}" onInput="{{ onCost }}">
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Meals out per week</label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ mealsPerWeek }}</span></div>
+        <input type="range" min="0" max="21" step="1" value="{{ mealsPerWeek }}" onInput="{{ onMeals }}" style="width:100%;display:block">
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(160deg,rgba(230,199,99,0.12),rgba(230,199,99,0.03));border:1px solid rgba(230,199,99,0.35);border-radius:20px;padding:28px;margin-bottom:28px;text-align:center">
+      <div style="font-size:13.5px;color:#C9AE6F;font-weight:600;margin-bottom:8px">Monthly dining out cost</div>
+      <div style="font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-0.03em;margin-bottom:6px">{{ monthlyFmt }}</div>
+      <div style="font-size:14px;color:#8E8E93">{{ yearlyFmt }} per year</div>
+    </div>
+
+    <div style="background:#141416;border:1px solid rgba(255,255,255,0.05);border-radius:18px;padding:22px;margin-bottom:44px;text-align:center">
+      <div style="font-size:13.5px;font-weight:600;color:#8E8E93;margin-bottom:10px">Potential monthly savings if you cooked at home instead</div>
+      <div style="font-size:26px;font-weight:800;color:#5FCB8C">{{ savingsFmt }}</div>
+    </div>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:16px">How this is calculated</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:#A8A8AD;margin-bottom:16px">We multiply your average meal cost by how often you eat out, then estimate home-cooked meals at roughly 30% of that cost to show potential savings.</p>
+      <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px 20px;font-family:ui-monospace,monospace;font-size:14.5px;color:#E6C763;margin-bottom:16px">Monthly Cost = Cost per Meal &times; Meals/Week &times; 4.33</div>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:22px"><strong style="color:#C9C9CE">Example:</strong> &#8377;350 per meal, 6 times a week, comes to roughly &#8377;9,100 a month &mdash; over &#8377;1,00,000 a year.</p>
+      <h3 style="font-size:17px;font-weight:700;margin-bottom:12px">Tips to cut dining out costs</h3>
+      <ul style="font-size:14.5px;line-height:1.9;color:#A8A8AD;padding-left:20px;margin:0">
+        <li>Meal-prep on weekends so a home-cooked option is always ready.</li>
+        <li>Set a weekly cap on dining-out spend rather than counting individual meals.</li>
+        <li>Order in bulk or share with a friend to lower delivery fees per person.</li>
+        <li>Save dining out for occasions that feel worth it, not daily convenience.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:18px">Frequently asked questions</h2>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+          <summary style="font-size:15px;font-weight:600;cursor:pointer">{{ f.q }}</summary>
+          <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">{{ f.a }}</p>
+        </details>
+      </sc-for>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:20px;font-weight:700;margin-bottom:18px">Related tools</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px">
+        <a href="Calculator - Expense Split.dc.html" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Expense Split Calculator</div><div style="font-size:12.5px;color:#8E8E93">Split the bill with friends</div></a>
+        <a href="Calculator - Subscription Cost.dc.html" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Subscription Cost Calculator</div><div style="font-size:12.5px;color:#8E8E93">Another easy place to trim</div></a>
+        <a href="Calculator - Monthly Budget.dc.html" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Monthly Budget Calculator</div><div style="font-size:12.5px;color:#8E8E93">See it in your full budget</div></a>
+        <a href="Finance Tools.dc.html" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">All Finance Tools</div><div style="font-size:12.5px;color:#8E8E93">Browse every calculator</div></a>
+      </div>
+    </section>
+
+    <div style="background:linear-gradient(160deg,#161618,#0D0D0F);border:1px solid rgba(230,199,99,0.25);border-radius:20px;padding:36px 28px;text-align:center">
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:10px">See it add up? Track it with Saviour.</h2>
+      <p style="font-size:14.5px;color:#A8A8AD;margin-bottom:22px">Saviour categorises every Swiggy and Zomato order automatically.</p>
+      <a href="Saviour Homepage.dc.html#download" style="display:inline-flex;align-items:center;gap:10px;background:#E6C763;color:#0D0D0F;padding:13px 22px;border-radius:14px;font-weight:700;font-size:14.5px" style-hover="transform:translateY(-2px)">Download App</a>
+    </div>
+  </main>
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 28px;text-align:center;color:#4a4a4e;font-size:13px">&copy; 2026 saviour</footer>
+</div>
+
+</div>
+
 <script>
 
 function inr(n) {
