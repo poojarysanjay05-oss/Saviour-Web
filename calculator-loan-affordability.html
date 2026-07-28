@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loan Affordability Calculator - How Much Can You Borrow? | Saviour</title>
+<meta name="description" content="Free loan affordability calculator. See how much loan you can comfortably take based on your income and existing EMIs.">
+<link rel="canonical" href="https://www.saviourmoney.com/finance-tools/loan-affordability-calculator">
+<meta property="og:title" content="Loan Affordability Calculator | Saviour">
+<meta property="og:description" content="Know how much loan you can comfortably take.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0}
+body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
+::selection{background:#E6C763;color:#0D0D0F}
+a{text-decoration:none;color:inherit}
+a:hover{color:#E6C763}
+h1,h2,h3{letter-spacing:-0.04em;margin:0}
+input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:100px;background:rgba(255,255,255,0.12);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:#E6C763;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+input[type=number]{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</head>
+<body>
+<div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
+      <a href="Saviour Homepage.dc.html" style="display:flex;align-items:center;gap:11px">
+        <img src="uploads/Icon-App-1024x1024@1x.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
+        <span style="font-weight:700;font-size:19px;letter-spacing:-0.025em;text-transform:none">Saviour</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:34px">
+        <a href="Finance Tools.dc.html" style="font-size:14.5px;color:#8E8E93;font-weight:500" style-hover="color:#fff">Finance Tools</a>
+        <a href="Saviour Homepage.dc.html#download" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px" style-hover="transform:translateY(-2px)">Download Free</a>
+      </nav>
+    </div>
+<script>
+
+function inr(n) {
+  n = Math.round(n || 0);
+  const neg = n < 0; n = Math.abs(n);
+  const s = n.toString(), last3 = s.slice(-3), rest = s.slice(0, -3);
+  const withCommas = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3 : last3;
+  return (neg ? '-' : '') + '\u20B9' + withCommas;
+}
+class Component extends DCLogic {
+  state = { income: 80000, existingEmi: 0, rate: 8.5, years: 20 };
+
+  principalFromEmi(emi, annualRate, months) {
+    const r = annualRate / 12 / 100;
+    if (r === 0) return emi * months;
+    return emi * (Math.pow(1 + r, months) - 1) / (r * Math.pow(1 + r, months));
+  }
+
+  renderVals() {
+    const { income, existingEmi, rate, years } = this.state;
+    const affordableEmi = Math.max(0, income * 0.4 - existingEmi);
+    const loan = this.principalFromEmi(affordableEmi, rate, years * 12);
+    return {
+      income, existingEmi, rate, years,
+      onIncome: (e) => this.setState({ income: Number(e.target.value) }),
+      onExistingEmi: (e) => this.setState({ existingEmi: Number(e.target.value) }),
+      onRate: (e) => this.setState({ rate: Number(e.target.value) }),
+      onYears: (e) => this.setState({ years: Number(e.target.value) }),
+      loanFmt: inr(loan),
+      affordableEmiFmt: inr(affordableEmi),
+      faqs: [
+        { q: 'How much EMI can I afford?', a: 'Lenders typically allow total EMIs (including the new loan) to be up to 40-50% of your monthly income, though a more conservative 35% keeps your budget comfortable.' },
+        { q: 'Does my existing EMI affect a new loan?', a: 'Yes, lenders subtract your existing EMI obligations from your affordable EMI limit before approving a new loan, which reduces how much you can borrow.' },
+        { q: 'How does interest rate affect affordability?', a: 'A higher interest rate reduces the loan principal you can afford for the same EMI, since more of each instalment goes toward interest rather than principal.' },
+        { q: "Should I borrow the maximum I'm eligible for?", a: "Not necessarily \u2014 borrowing less than your maximum eligibility leaves room in your budget for savings and unexpected expenses." }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

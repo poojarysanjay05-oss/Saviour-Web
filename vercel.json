@@ -1,0 +1,90 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/termsofservice",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/finance-tools",
+      "destination": "/finance-tools.html"
+    },
+    {
+      "source": "/finance-tools/50-30-20-budget-calculator",
+      "destination": "/calculator-50-30-20-budget.html"
+    },
+    {
+      "source": "/finance-tools/annual-income-calculator",
+      "destination": "/calculator-annual-income.html"
+    },
+    {
+      "source": "/finance-tools/daily-savings-calculator",
+      "destination": "/calculator-daily-savings.html"
+    },
+    {
+      "source": "/finance-tools/dining-out-calculator",
+      "destination": "/calculator-dining-out.html"
+    },
+    {
+      "source": "/finance-tools/emergency-fund-calculator",
+      "destination": "/calculator-emergency-fund.html"
+    },
+    {
+      "source": "/finance-tools/emi-calculator",
+      "destination": "/calculator-emi.html"
+    },
+    {
+      "source": "/finance-tools/expense-split-calculator",
+      "destination": "/calculator-expense-split.html"
+    },
+    {
+      "source": "/finance-tools/fuel-cost-calculator",
+      "destination": "/calculator-fuel-cost.html"
+    },
+    {
+      "source": "/finance-tools/interest-calculator",
+      "destination": "/calculator-interest.html"
+    },
+    {
+      "source": "/finance-tools/loan-affordability-calculator",
+      "destination": "/calculator-loan-affordability.html"
+    },
+    {
+      "source": "/finance-tools/monthly-budget-calculator",
+      "destination": "/calculator-monthly-budget.html"
+    },
+    {
+      "source": "/finance-tools/retirement-savings-calculator",
+      "destination": "/calculator-retirement-savings.html"
+    },
+    {
+      "source": "/finance-tools/salary-breakdown-calculator",
+      "destination": "/calculator-salary-breakdown.html"
+    },
+    {
+      "source": "/finance-tools/savings-goal-calculator",
+      "destination": "/calculator-savings-goal.html"
+    },
+    {
+      "source": "/finance-tools/subscription-cost-calculator",
+      "destination": "/calculator-subscription-cost.html"
+    },
+    {
+      "source": "/finance-tools/take-home-salary-calculator",
+      "destination": "/calculator-take-home-salary.html"
+    },
+    {
+      "source": "/finance-tools/travel-budget-calculator",
+      "destination": "/calculator-travel-budget.html"
+    },
+    {
+      "source": "/finance-tools/vacation-savings-calculator",
+      "destination": "/calculator-vacation-savings.html"
+    }
+  ]
+}

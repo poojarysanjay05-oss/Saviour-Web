@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergency Fund Calculator - How Big Should Yours Be? | Saviour</title>
+<meta name="description" content="Free emergency fund calculator. Find out how much you need saved to cover 3-12 months of expenses.">
+<link rel="canonical" href="https://www.saviourmoney.com/finance-tools/emergency-fund-calculator">
+<meta property="og:title" content="Emergency Fund Calculator | Saviour">
+<meta property="og:description" content="Find out how big your safety net should be.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0}
+body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
+::selection{background:#E6C763;color:#0D0D0F}
+a{text-decoration:none;color:inherit}
+a:hover{color:#E6C763}
+h1,h2,h3{letter-spacing:-0.04em;margin:0}
+input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:100px;background:rgba(255,255,255,0.12);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:#E6C763;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+input[type=number]{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</head>
+<body>
+<div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
+      <a href="/" style="display:flex;align-items:center;gap:11px">
+        <img src="/saviour-logo.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
+        <span style="font-weight:700;font-size:19px;letter-spacing:-0.025em;text-transform:none">Saviour</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener noreferrer" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(230,199,99,0.25);text-decoration:none" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(230,199,99,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(230,199,99,0.25)'">Download Free</a>
+    </div>
+  </header>
+
+  <div style="max-width:820px;margin:0 auto;padding:18px 28px 0;display:flex;align-items:center;justify-content:space-between">
+    <a href="/finance-tools" style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#8E8E93" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#8E8E93'"><span style="font-size:15px">&#8592;</span>Back</a>
+    <div style="font-size:13px;color:#6A6A70"><a href="/" style="color:#6A6A70" onmouseover="this.style.color='#E6C763'" onmouseout="this.style.color='#6A6A70'">Saviour</a> / <a href="/finance-tools" style="color:#6A6A70" onmouseover="this.style.color='#E6C763'" onmouseout="this.style.color='#6A6A70'">Finance Tools</a> / Emergency Fund Calculator</div>
+  </div>
+
+  <main style="max-width:820px;margin:0 auto;padding:36px 28px 100px">
+    <h1 style="font-size:clamp(32px,5.4vw,52px);font-weight:800;line-height:1.05;margin-bottom:12px">Emergency fund calculator</h1>
+    <p style="font-size:17px;line-height:1.55;color:#A8A8AD;margin-bottom:36px;max-width:600px">Find out exactly how big your safety net should be, based on your real monthly expenses.</p>
+
+    <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px;margin-bottom:28px">
+      <div style="margin-bottom:26px">
+        <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:8px">Essential monthly expenses</label>
+        <input type="number" id="expensesInput" value="35000" min="0" oninput="updateCalculator()">
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Months of cover</label><span style="font-size:16px;font-weight:700;color:#E6C763" id="monthsDisplay">6 months</span></div>
+        <input type="range" id="monthsInput" min="3" max="12" step="1" value="6" style="width:100%;display:block" oninput="updateCalculator()">
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(160deg,rgba(230,199,99,0.12),rgba(230,199,99,0.03));border:1px solid rgba(230,199,99,0.35);border-radius:20px;padding:28px;margin-bottom:44px;text-align:center">
+      <div style="font-size:13.5px;color:#C9AE6F;font-weight:600;margin-bottom:8px">Your target emergency fund</div>
+      <div id="targetValue" style="font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-0.03em">₹2,10,000</div>
+    </div>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:16px">How this is calculated</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:#A8A8AD;margin-bottom:16px">An emergency fund should cover your essential expenses &mdash; rent, food, utilities, EMIs &mdash; if your income stopped tomorrow. It&apos;s not meant to cover discretionary spending.</p>
+      <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px 20px;font-family:ui-monospace,monospace;font-size:14.5px;color:#E6C763;margin-bottom:16px">Emergency Fund = Monthly Expenses &times; Months of Cover</div>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:22px"><strong style="color:#C9C9CE">Example:</strong> if your essentials cost &#8377;35,000/month and you want 6 months of cover, you&apos;d need &#8377;2,10,000 saved.</p>
+      <h3 style="font-size:17px;font-weight:700;margin-bottom:12px">Tips to build it faster</h3>
+      <ul style="font-size:14.5px;line-height:1.9;color:#A8A8AD;padding-left:20px;margin:0">
+        <li>Start with a smaller milestone, like one month&apos;s expenses, before aiming for six.</li>
+        <li>Keep it in a separate account so you&apos;re not tempted to dip into it.</li>
+        <li>Automate a fixed transfer every payday until you hit your target.</li>
+        <li>Top it back up immediately after any withdrawal.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:18px">Frequently asked questions</h2>
+      <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+        <summary style="font-size:15px;font-weight:600;cursor:pointer">How many months of expenses should an emergency fund cover?</summary>
+        <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">Most planners recommend 3 to 6 months of essential expenses, or 6 to 12 months if your income is variable or you&apos;re the sole earner in your household.</p>
+      </details>
+      <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+        <summary style="font-size:15px;font-weight:600;cursor:pointer">Where should I keep my emergency fund?</summary>
+        <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">Keep it somewhere safe and easily accessible, like a high-yield savings account or liquid mutual fund, not locked in long-term investments.</p>
+      </details>
+      <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+        <summary style="font-size:15px;font-weight:600;cursor:pointer">Should I invest my emergency fund in stocks?</summary>
+        <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">No, an emergency fund should not be invested in volatile assets like stocks since you may need it quickly and its value could drop when you need it most.</p>
+      </details>
+      <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+        <summary style="font-size:15px;font-weight:600;cursor:pointer">How do I build an emergency fund quickly?</summary>
+        <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">Automate a fixed monthly transfer, redirect windfalls like bonuses or tax refunds toward it, and pause non-essential spending until you hit your target.</p>
+      </details>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:20px;font-weight:700;margin-bottom:18px">Related tools</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px">
+        <a href="/calculator-monthly-budget" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" onmouseover="this.style.borderColor='rgba(230,199,99,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Monthly Budget Calculator</div><div style="font-size:12.5px;color:#8E8E93">Find your essential expenses</div></a>
+        <a href="/calculator-50-30-20-budget" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" onmouseover="this.style.borderColor='rgba(230,199,99,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">50/30/20 Budget Calculator</div><div style="font-size:12.5px;color:#8E8E93">See your needs vs wants split</div></a>
+        <a href="/calculator-savings-goal" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" onmouseover="this.style.borderColor='rgba(230,199,99,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Savings Goal Calculator</div><div style="font-size:12.5px;color:#8E8E93">See how long it takes to build</div></a>
+        <a href="/finance-tools" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" onmouseover="this.style.borderColor='rgba(230,199,99,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">All Finance Tools</div><div style="font-size:12.5px;color:#8E8E93">Browse every calculator</div></a>
+      </div>
+    </section>
+
+    <div style="background:linear-gradient(160deg,#161618,#0D0D0F);border:1px solid rgba(230,199,99,0.25);border-radius:20px;padding:36px 28px;text-align:center">
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:10px">Know your number? Start building it.</h2>
+      <p style="font-size:14.5px;color:#A8A8AD;margin-bottom:22px">Saviour tracks your savings progress automatically, every month.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;background:#E6C763;color:#0D0D0F;padding:13px 22px;border-radius:14px;font-weight:700;font-size:14.5px;text-decoration:none" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Download App</a>
+    </div>
+  </main>
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 28px;text-align:center;color:#4a4a4e;font-size:13px">&copy; 2026 saviour</footer>
+</div>
+
+<script>
+function formatCurrency(n) {
+  n = Math.round(n || 0);
+  const neg = n < 0;
+  n = Math.abs(n);
+  const s = n.toString();
+  const last3 = s.slice(-3);
+  const rest = s.slice(0, -3);
+  const withCommas = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3 : last3;
+  return (neg ? '-' : '') + '\u20B9' + withCommas;
+}
+
+function updateCalculator() {
+  const expenses = parseFloat(document.getElementById('expensesInput').value) || 0;
+  const months = parseInt(document.getElementById('monthsInput').value) || 6;
+  
+  document.getElementById('monthsDisplay').textContent = months + ' months';
+  document.getElementById('targetValue').textContent = formatCurrency(expenses * months);
+}
+
+// Initialize on page load
+updateCalculator();
+</script>
+</body>
+</html>
