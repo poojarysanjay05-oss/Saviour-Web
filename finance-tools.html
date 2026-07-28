@@ -6,6 +6,33 @@
 <script src="/support.js"></script>
 </head>
 <body>
+<script>
+(function() {
+  const loader = document.createElement('div');
+  loader.id = 'dc-loader';
+  loader.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#0D0D0F;display:flex;align-items:center;justify-content:center;z-index:9999';
+  const ring = document.createElement('div');
+  ring.style.cssText = 'width:60px;height:60px;border:4px solid rgba(230,199,99,0.2);border-top-color:#E6C763;border-radius:50%;animation:spin 1s linear infinite';
+  loader.appendChild(ring);
+  document.body.appendChild(loader);
+  
+  const style = document.createElement('style');
+  style.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(style);
+  
+  let timeout = false;
+  const timer = setTimeout(() => { timeout = true; loader.remove(); }, 15000);
+  
+  const checkInterval = setInterval(() => {
+    const root = document.getElementById('dc-root');
+    if (root && root.children.length > 0 && !timeout) {
+      clearInterval(checkInterval);
+      clearTimeout(timer);
+      loader.remove();
+    }
+  }, 50);
+})();
+</script>
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +67,7 @@
         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Icon%E2%80%8B-%E2%80%8BApp%E2%80%8B-1024x1024%E2%80%8B%401x%E2%80%8B-KzQEi3Ae0Q3T5aQx2mElgmf5WdB5Jd.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
         <span style="font-weight:700;font-size:19px;letter-spacing:-0.025em;text-transform:none">Saviour</span>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener noreferrer" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(230,199,99,0.25);text-decoration:none" style-hover="transform:translateY(-2px);box-shadow:0 8px 28px rgba(230,199,99,0.4)">Download Free</a>
+      <a href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener noreferrer" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(230,199,99,0.25);text-decoration:none" style-hover="transform:translateY(-2px);box-shadow:0 8px 28px rgba(230,199,99,0.4)">Download</a>
     </div>
   </header>
 
