@@ -37,6 +37,7 @@
   </style>
 </head>
 <body>
+<x-dc>
 <div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
     <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
@@ -159,8 +160,6 @@ class Component extends DCLogic {
 }
 
 </script>
-<script type="text/x-dc" data-dc-script>
-  new Component().attach(document.body);
-</script>
+</x-dc>
 </body>
 </html>
