@@ -18,6 +18,7 @@
     { "source": "/finance-tools/interest-calculator", "destination": "/Calculator - Interest.dc.html" },
     { "source": "/finance-tools/loan-affordability-calculator", "destination": "/Calculator - Loan Affordability.dc.html" },
     { "source": "/finance-tools/monthly-budget-calculator", "destination": "/Calculator - Monthly Budget.dc.html" },
+    { "source": "/finance-tools/old-vs-new-tax-regime-calculator", "destination": "/Calculator - Tax Regime Comparison.dc.html" },
     { "source": "/finance-tools/retirement-savings-calculator", "destination": "/Calculator - Retirement Savings.dc.html" },
     { "source": "/finance-tools/salary-breakdown-calculator", "destination": "/Calculator - Salary Breakdown.dc.html" },
     { "source": "/finance-tools/savings-goal-calculator", "destination": "/Calculator - Savings Goal.dc.html" },

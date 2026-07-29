@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js" defer></script>
+</head>
+<body>
+<div id="dc-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0D0D0F">
+  <div style="width:28px;height:28px;border-radius:50%;border:3px solid rgba(230,199,99,0.18);border-top-color:#E6C763;animation:dc-loader-spin .7s linear infinite"></div>
+</div>
+<style>@keyframes dc-loader-spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){#dc-loader *{animation:none!important}}</style>
+<script>
+(function(){
+  var t0 = Date.now();
+  function tick(){
+    var root = document.getElementById('dc-root');
+    var loader = document.getElementById('dc-loader');
+    if (!loader) return;
+    if (root && root.children.length > 0) { loader.remove(); return; }
+    if (Date.now() - t0 > 15000) { loader.remove(); return; }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Old vs New Tax Regime Calculator - Compare & Save Tax (FY 2025-26) | Saviour</title>
+  <meta name="description" content="Compare your income tax under the old and new tax regimes for FY 2025-26. Enter your income and deductions to instantly see which regime saves you more.">
+  <link rel="canonical" href="https://www.saviourmoney.com/finance-tools/old-vs-new-tax-regime-calculator">
+  <meta property="og:title" content="Old vs New Tax Regime Calculator | Saviour">
+  <meta property="og:description" content="See your exact tax under both regimes and find out which one saves you more.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Saviour","item":"https://www.saviourmoney.com/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://www.saviourmoney.com/finance-tools"},{"@type":"ListItem","position":3,"name":"Old vs New Tax Regime Calculator","item":"https://www.saviourmoney.com/finance-tools/old-vs-new-tax-regime-calculator"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Old vs New Tax Regime Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the difference between the old and new tax regime?","acceptedAnswer":{"@type":"Answer","text":"The old regime lets you claim deductions like 80C, HRA and home loan interest but taxes income at higher rates. The new regime offers lower tax rates and a higher ₹75,000 standard deduction, but most deductions and exemptions are not available."}},
+    {"@type":"Question","name":"Which tax regime is better for me?","acceptedAnswer":{"@type":"Answer","text":"It depends on how much you can claim in deductions. If your 80C, HRA, and home loan interest deductions are high, the old regime often works out cheaper. If you have few deductions, the new regime usually results in lower tax."}},
+    {"@type":"Question","name":"Can I switch between the old and new tax regime every year?","acceptedAnswer":{"@type":"Answer","text":"Salaried individuals can choose a different regime each financial year. Those with business or professional income can switch only once after opting out of the new regime."}},
+    {"@type":"Question","name":"What is the standard deduction under each regime?","acceptedAnswer":{"@type":"Answer","text":"The new regime offers a ₹75,000 standard deduction, while the old regime offers ₹50,000. Both are automatically subtracted from your gross salary before tax is calculated."}},
+    {"@type":"Question","name":"What is the Section 87A rebate?","acceptedAnswer":{"@type":"Answer","text":"Under Section 87A, no tax is payable if your taxable income is up to ₹12,00,000 in the new regime or up to ₹5,00,000 in the old regime, since the rebate cancels out the tax due at these levels."}},
+    {"@type":"Question","name":"Do I need to pay surcharge on my income tax?","acceptedAnswer":{"@type":"Answer","text":"Yes, once taxable income crosses ₹50 lakh, a surcharge of 10% to 37% (old regime) or up to 25% (new regime) applies on top of your income tax, with marginal relief to smooth the increase near each threshold."}}
+  ]}</script>
+  <style>
+    html,body{margin:0}
+    @media (max-width:640px){.nav-link{display:none}.nav-cta{padding:9px 16px!important;font-size:13px!important}nav{gap:14px!important}.nav-finance{font-size:13px!important}}
+    body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
+    ::selection{background:#E6C763;color:#0D0D0F}
+    a{text-decoration:none;color:inherit}
+    a:hover{color:#E6C763}
+    h1,h2,h3{letter-spacing:-0.04em;margin:0}
+    input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:100px;background:rgba(255,255,255,0.12);outline:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:19px;height:19px;border-radius:50%;background:#E6C763;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.4)}
+    input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    table{border-collapse:collapse;width:100%}
+    th,td{text-align:left;padding:10px 12px;font-size:13.5px}
+    @keyframes revealIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+</helmet>
+
+<div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
+      <a href="/" style="display:flex;align-items:center;gap:11px">
+        <img src="/uploads/Icon-App-1024x1024@1x.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
+        <span style="font-weight:700;font-size:19px;letter-spacing:-0.025em;text-transform:none">Saviour</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:34px">
+        <a class="nav-finance" href="/finance-tools" style="font-size:14.5px;color:#8E8E93;font-weight:500;transition:color .2s" style-hover="color:#fff">Finance Tools</a>
+        <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px" style-hover="transform:translateY(-2px)">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <div style="max-width:820px;margin:0 auto;padding:18px 28px 0;display:flex;align-items:center;justify-content:space-between">
+    <a href="/" style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#8E8E93" style-hover="color:#fff"><span style="font-size:15px">&#8592;</span>Back</a>
+    <div style="font-size:13px;color:#6A6A70">
+      <a href="/" style="color:#6A6A70" style-hover="color:#E6C763">Saviour</a> / <a href="/finance-tools" style="color:#6A6A70" style-hover="color:#E6C763">Finance Tools</a> / Tax Regime Calculator
+    </div>
+  </div>
+
+  <main style="max-width:820px;margin:0 auto;padding:36px 28px 100px">
+    <h1 style="font-size:clamp(32px,5.4vw,52px);font-weight:800;line-height:1.05;margin-bottom:12px">Old vs New tax regime calculator</h1>
+    <p style="font-size:17px;line-height:1.55;color:#A8A8AD;margin-bottom:36px;max-width:600px">Enter your income and deductions to see your exact tax under both regimes for FY 2025-26 &mdash; and find out which one actually saves you money.</p>
+
+    <!-- INPUT CARD -->
+    <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px;margin-bottom:28px">
+      <div style="margin-bottom:26px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Annual gross income</label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ incomeFmt }}</span></div>
+        <input type="range" min="300000" max="5000000" step="10000" value="{{ income }}" onInput="{{ onIncome }}" style="width:100%;display:block">
+      </div>
+      <div style="margin-bottom:26px">
+        <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:10px">Age group</label>
+        <div style="display:flex;gap:8px">
+          <div onClick="{{ onAgeBelow60 }}" style="cursor:pointer;flex:1;text-align:center;padding:10px 8px;border-radius:11px;font-size:13.5px;font-weight:700;background:{{ ageBelow60Bg }};color:{{ ageBelow60Color }};border:1px solid rgba(255,255,255,0.08)">Below 60</div>
+          <div onClick="{{ onAgeSenior }}" style="cursor:pointer;flex:1;text-align:center;padding:10px 8px;border-radius:11px;font-size:13.5px;font-weight:700;background:{{ ageSeniorBg }};color:{{ ageSeniorColor }};border:1px solid rgba(255,255,255,0.08)">60&ndash;80</div>
+          <div onClick="{{ onAgeSuper }}" style="cursor:pointer;flex:1;text-align:center;padding:10px 8px;border-radius:11px;font-size:13.5px;font-weight:700;background:{{ ageSuperBg }};color:{{ ageSuperColor }};border:1px solid rgba(255,255,255,0.08)">80+</div>
+        </div>
+      </div>
+      <div style="margin-bottom:26px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Section 80C &amp; 80D investments <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deduction80cFmt }}</span></div>
+        <input type="range" min="0" max="150000" step="5000" value="{{ deduction80c }}" onInput="{{ onDeduction80c }}" style="width:100%;display:block">
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">HRA / home loan interest <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionHraFmt }}</span></div>
+        <input type="range" min="0" max="200000" step="5000" value="{{ deductionHra }}" onInput="{{ onDeductionHra }}" style="width:100%;display:block">
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div style="background:linear-gradient(160deg,rgba(230,199,99,0.12),rgba(230,199,99,0.03));border:1px solid rgba(230,199,99,0.35);border-radius:20px;padding:20px 24px;margin-bottom:20px;text-align:center">
+      <div style="font-size:15px;font-weight:700;color:#fff">{{ betterLabel }}</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:28px">
+      <div style="background:#161618;border-radius:20px;padding:26px;text-align:center;border:{{ oldCardBorder }}">
+        <div style="font-size:13.5px;color:#8E8E93;font-weight:600;margin-bottom:8px">Old Regime tax</div>
+        <div style="font-size:clamp(26px,5.5vw,36px);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px">{{ oldTaxFmt }}</div>
+        <div style="font-size:12.5px;color:#6A6A70">Taxable income: {{ oldTaxableFmt }}</div>
+      </div>
+      <div style="background:#161618;border-radius:20px;padding:26px;text-align:center;border:{{ newCardBorder }}">
+        <div style="font-size:13.5px;color:#8E8E93;font-weight:600;margin-bottom:8px">New Regime tax</div>
+        <div style="font-size:clamp(26px,5.5vw,36px);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px">{{ newTaxFmt }}</div>
+        <div style="font-size:12.5px;color:#6A6A70">Taxable income: {{ newTaxableFmt }}</div>
+      </div>
+    </div>
+
+    <!-- BREAKDOWN -->
+    <div style="background:#141416;border:1px solid rgba(255,255,255,0.05);border-radius:18px;padding:22px;margin-bottom:44px">
+      <div style="font-size:13.5px;font-weight:600;color:#8E8E93;margin-bottom:14px">Breakdown</div>
+      <table>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">Gross income</td><td style="text-align:right;font-weight:700">{{ incomeFmt }}</td><td style="text-align:right;font-weight:700">{{ incomeFmt }}</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">Standard deduction</td><td style="text-align:right">{{ oldStdFmt }}</td><td style="text-align:right">{{ newStdFmt }}</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">Other deductions claimed</td><td style="text-align:right">{{ oldOtherDeductFmt }}</td><td style="text-align:right">&mdash;</td></tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93;font-weight:700">Taxable income</td><td style="text-align:right;font-weight:700;color:#E6C763">{{ oldTaxableFmt }}</td><td style="text-align:right;font-weight:700;color:#E6C763">{{ newTaxableFmt }}</td></tr>
+        <tr><td style="color:#8E8E93;font-weight:700">Tax payable (incl. cess)</td><td style="text-align:right;font-weight:700">{{ oldTaxFmt }}</td><td style="text-align:right;font-weight:700">{{ newTaxFmt }}</td></tr>
+      </table>
+      <div style="display:flex;gap:0;margin-top:10px"><div style="flex:1;font-size:12px;color:#6A6A70;text-align:right;padding-right:12px">Old Regime</div><div style="flex:1;font-size:12px;color:#6A6A70;text-align:right">New Regime</div></div>
+    </div>
+
+    <!-- EXPLAIN -->
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:16px">How the tax is calculated</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:#A8A8AD;margin-bottom:20px">Both regimes apply slab rates to your taxable income, then add 4% Health &amp; Education Cess. The new regime has lower rates and a bigger standard deduction, but drops most exemptions and deductions available under the old regime.</p>
+
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">New Regime slabs (FY 2025-26)</h3>
+      <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:6px 14px;margin-bottom:20px">
+        <table>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">Up to &#8377;4,00,000</td><td style="text-align:right">Nil</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;4,00,000 &ndash; &#8377;8,00,000</td><td style="text-align:right">5%</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;8,00,000 &ndash; &#8377;12,00,000</td><td style="text-align:right">10%</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;12,00,000 &ndash; &#8377;16,00,000</td><td style="text-align:right">15%</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;16,00,000 &ndash; &#8377;20,00,000</td><td style="text-align:right">20%</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;20,00,000 &ndash; &#8377;24,00,000</td><td style="text-align:right">25%</td></tr>
+          <tr><td style="color:#8E8E93">Above &#8377;24,00,000</td><td style="text-align:right">30%</td></tr>
+        </table>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">Old Regime slabs (below 60 years)</h3>
+      <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:6px 14px;margin-bottom:20px">
+        <table>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">Up to &#8377;2,50,000</td><td style="text-align:right">Nil</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;2,50,000 &ndash; &#8377;5,00,000</td><td style="text-align:right">5%</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06)"><td style="color:#8E8E93">&#8377;5,00,000 &ndash; &#8377;10,00,000</td><td style="text-align:right">20%</td></tr>
+          <tr><td style="color:#8E8E93">Above &#8377;10,00,000</td><td style="text-align:right">30%</td></tr>
+        </table>
+      </div>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">Senior citizens (60&ndash;80) get a nil slab up to &#8377;3,00,000, and super senior citizens (80+) up to &#8377;5,00,000, under the old regime &mdash; the 5%/20%/30% rates above those limits stay the same.</p>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">Under Section 87A, tax is fully rebated (reduced to zero, before cess) if taxable income is up to &#8377;12,00,000 in the new regime, or up to &#8377;5,00,000 in the old regime.</p>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93">Above &#8377;50 lakh, a surcharge of 10%&ndash;37% (old regime) or up to 25% (new regime) applies on the tax, with marginal relief so the surcharge never eats more than the extra income earned past each threshold.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:18px">Frequently asked questions</h2>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+        <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+          <summary style="font-size:15px;font-weight:600;cursor:pointer">{{ f.q }}</summary>
+          <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">{{ f.a }}</p>
+        </details>
+      </sc-for>
+    </section>
+
+    <!-- RELATED -->
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:20px;font-weight:700;margin-bottom:18px">Related tools</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px">
+        <a href="/finance-tools/take-home-salary-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:border-color .2s" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Take Home Salary Calculator</div><div style="font-size:12.5px;color:#8E8E93">Your real monthly in-hand pay</div></a>
+        <a href="/finance-tools/salary-breakdown-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:border-color .2s" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Salary Breakdown Calculator</div><div style="font-size:12.5px;color:#8E8E93">See exactly where your CTC goes</div></a>
+        <a href="/finance-tools/annual-income-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:border-color .2s" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Annual Income Calculator</div><div style="font-size:12.5px;color:#8E8E93">Convert pay periods to yearly</div></a>
+        <a href="/finance-tools" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:border-color .2s" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">All Finance Tools</div><div style="font-size:12.5px;color:#8E8E93">Browse every calculator</div></a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(160deg,#161618,#0D0D0F);border:1px solid rgba(230,199,99,0.25);border-radius:20px;padding:36px 28px;text-align:center">
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:10px">Know your tax. Now track your take-home.</h2>
+      <p style="font-size:14.5px;color:#A8A8AD;margin-bottom:22px">Saviour tracks every rupee that hits your account after tax &mdash; automatically.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.expensetracker.saviour" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#E6C763;color:#0D0D0F;padding:13px 22px;border-radius:14px;font-weight:700;font-size:14.5px" style-hover="transform:translateY(-2px)">Download App</a>
+    </div>
+  </main>
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 28px;text-align:center;color:#4a4a4e;font-size:13px">&copy; 2026 saviour</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+function inr(n) {
+  n = Math.round(n || 0);
+  const neg = n < 0; n = Math.abs(n);
+  const s = n.toString(), last3 = s.slice(-3), rest = s.slice(0, -3);
+  const withCommas = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3 : last3;
+  return (neg ? '-' : '') + '₹' + withCommas;
+}
+
+function taxFromBrackets(income, brackets) {
+  let tax = 0, prev = 0;
+  for (let i = 0; i < brackets.length; i++) {
+    const upper = brackets[i][0], rate = brackets[i][1];
+    if (income > prev) tax += (Math.min(income, upper) - prev) * rate;
+    prev = upper;
+    if (income <= upper) break;
+  }
+  return tax;
+}
+
+function oldRegimeBaseTax(taxableIncome, ageGroup) {
+  let brackets;
+  if (ageGroup === 'super') brackets = [[500000, 0], [1000000, 0.20], [Infinity, 0.30]];
+  else if (ageGroup === 'senior') brackets = [[300000, 0], [500000, 0.05], [1000000, 0.20], [Infinity, 0.30]];
+  else brackets = [[250000, 0], [500000, 0.05], [1000000, 0.20], [Infinity, 0.30]];
+  let tax = taxFromBrackets(taxableIncome, brackets);
+  if (taxableIncome <= 500000) tax = 0;
+  return tax;
+}
+
+function newRegimeBaseTax(taxableIncome) {
+  const brackets = [[400000, 0], [800000, 0.05], [1200000, 0.10], [1600000, 0.15], [2000000, 0.20], [2400000, 0.25], [Infinity, 0.30]];
+  let tax = taxFromBrackets(taxableIncome, brackets);
+  if (taxableIncome <= 1200000) tax = 0;
+  return tax;
+}
+
+function surchargeRate(income, regime) {
+  if (income > 50000000) return regime === 'new' ? 0.25 : 0.37;
+  if (income > 20000000) return 0.25;
+  if (income > 10000000) return 0.15;
+  if (income > 5000000) return 0.10;
+  return 0;
+}
+
+function thresholdFor(income) {
+  if (income > 50000000) return 50000000;
+  if (income > 20000000) return 20000000;
+  if (income > 10000000) return 10000000;
+  if (income > 5000000) return 5000000;
+  return 0;
+}
+
+function finalTax(taxableIncome, regime, ageGroup) {
+  const baseFn = regime === 'old' ? (inc) => oldRegimeBaseTax(inc, ageGroup) : (inc) => newRegimeBaseTax(inc);
+  const baseTax = baseFn(taxableIncome);
+  const rate = surchargeRate(taxableIncome, regime);
+  let taxPlusSurcharge = baseTax;
+  if (rate > 0) {
+    taxPlusSurcharge = baseTax * (1 + rate);
+    const threshold = thresholdFor(taxableIncome);
+    if (threshold > 0) {
+      const priorRate = surchargeRate(threshold - 1, regime);
+      const taxAtThreshold = baseFn(threshold) * (1 + priorRate);
+      const maxAllowed = taxAtThreshold + (taxableIncome - threshold);
+      taxPlusSurcharge = Math.min(taxPlusSurcharge, maxAllowed);
+    }
+  }
+  const cess = taxPlusSurcharge * 0.04;
+  return Math.round(taxPlusSurcharge + cess);
+}
+
+class Component extends DCLogic {
+  state = { income: 1200000, ageGroup: 'below60', deduction80c: 150000, deductionHra: 100000 };
+
+  renderVals() {
+    const { income, ageGroup, deduction80c, deductionHra } = this.state;
+    const oldStd = 50000, newStd = 75000;
+    const newTaxable = Math.max(0, income - newStd);
+    const oldTaxable = Math.max(0, income - oldStd - deduction80c - deductionHra);
+    const oldTax = finalTax(oldTaxable, 'old', ageGroup);
+    const newTax = finalTax(newTaxable, 'new', ageGroup);
+    const diff = Math.abs(oldTax - newTax);
+    const better = oldTax === newTax ? 'equal' : (oldTax < newTax ? 'old' : 'new');
+
+    return {
+      income, ageGroup, deduction80c, deductionHra,
+      incomeFmt: inr(income),
+      deduction80cFmt: inr(deduction80c),
+      deductionHraFmt: inr(deductionHra),
+      oldStdFmt: inr(oldStd),
+      newStdFmt: inr(newStd),
+      oldOtherDeductFmt: inr(deduction80c + deductionHra),
+      oldTaxableFmt: inr(oldTaxable),
+      newTaxableFmt: inr(newTaxable),
+      oldTaxFmt: inr(oldTax),
+      newTaxFmt: inr(newTax),
+      betterLabel: better === 'equal' ? 'Both regimes result in the same tax' : ('You save ' + inr(diff) + ' with the ' + (better === 'old' ? 'Old' : 'New') + ' Regime'),
+      oldCardBorder: better === 'old' ? '2px solid #E6C763' : '1px solid rgba(255,255,255,0.07)',
+      newCardBorder: better === 'new' ? '2px solid #E6C763' : '1px solid rgba(255,255,255,0.07)',
+      ageBelow60Bg: ageGroup === 'below60' ? '#E6C763' : 'transparent',
+      ageBelow60Color: ageGroup === 'below60' ? '#0D0D0F' : '#C9C9CE',
+      ageSeniorBg: ageGroup === 'senior' ? '#E6C763' : 'transparent',
+      ageSeniorColor: ageGroup === 'senior' ? '#0D0D0F' : '#C9C9CE',
+      ageSuperBg: ageGroup === 'super' ? '#E6C763' : 'transparent',
+      ageSuperColor: ageGroup === 'super' ? '#0D0D0F' : '#C9C9CE',
+      onIncome: (e) => this.setState({ income: Number(e.target.value) }),
+      onDeduction80c: (e) => this.setState({ deduction80c: Number(e.target.value) }),
+      onDeductionHra: (e) => this.setState({ deductionHra: Number(e.target.value) }),
+      onAgeBelow60: () => this.setState({ ageGroup: 'below60' }),
+      onAgeSenior: () => this.setState({ ageGroup: 'senior' }),
+      onAgeSuper: () => this.setState({ ageGroup: 'super' }),
+      faqs: [
+        { q: 'What is the difference between the old and new tax regime?', a: 'The old regime lets you claim deductions like 80C, HRA and home loan interest but taxes income at higher rates. The new regime offers lower tax rates and a higher ₹75,000 standard deduction, but most deductions and exemptions are not available.' },
+        { q: 'Which tax regime is better for me?', a: 'It depends on how much you can claim in deductions. If your 80C, HRA, and home loan interest deductions are high, the old regime often works out cheaper. If you have few deductions, the new regime usually results in lower tax.' },
+        { q: 'Can I switch between the old and new tax regime every year?', a: 'Salaried individuals can choose a different regime each financial year. Those with business or professional income can switch only once after opting out of the new regime.' },
+        { q: 'What is the standard deduction under each regime?', a: 'The new regime offers a ₹75,000 standard deduction, while the old regime offers ₹50,000. Both are automatically subtracted from your gross salary before tax is calculated.' },
+        { q: 'What is the Section 87A rebate?', a: 'Under Section 87A, no tax is payable if your taxable income is up to ₹12,00,000 in the new regime or up to ₹5,00,000 in the old regime, since the rebate cancels out the tax due at these levels.' },
+        { q: 'Do I need to pay surcharge on my income tax?', a: 'Yes, once taxable income crosses ₹50 lakh, a surcharge of 10% to 37% (old regime) or up to 25% (new regime) applies on top of your income tax, with marginal relief to smooth the increase near each threshold.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
