@@ -1,5 +1,12 @@
+# Exclude duplicate/stray homepage files that could interfere with routing
+# index.html is the bundled "Bundled Page" duplicate - exclude it
+index.html
+Saviour Homepage.html
+
+# Exclude screenshot and metadata files
 screenshots
 .thumbnail
 .DS_Store
+
+# Exclude canvas source file
 Canvas.dc.html
-Saviour Homepage.html
