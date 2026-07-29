@@ -1,3 +1,4 @@
 # Exclude duplicate/stray homepage files that could interfere with routing
-Saviour Homepage Updated.html
+# index.html is the bundled "Bundled Page" duplicate - exclude it
+index.html
 Saviour Homepage.html

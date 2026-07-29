@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/Saviour Homepage Updated.html"
+    },
+    {
       "source": "/privacy-policy",
       "destination": "/privacy-policy.html"
     },
