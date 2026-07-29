@@ -2,3 +2,11 @@
 # index.html is the bundled "Bundled Page" duplicate - exclude it
 index.html
 Saviour Homepage.html
+
+# Exclude screenshot and metadata files
+screenshots
+.thumbnail
+.DS_Store
+
+# Exclude canvas source file
+Canvas.dc.html

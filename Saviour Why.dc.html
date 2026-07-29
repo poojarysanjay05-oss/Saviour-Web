@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<div id="dc-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0D0D0F">
+  <div style="width:28px;height:28px;border-radius:50%;border:3px solid rgba(230,199,99,0.18);border-top-color:#E6C763;animation:dc-loader-spin .7s linear infinite"></div>
+</div>
+<style>@keyframes dc-loader-spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){#dc-loader *{animation:none!important}}</style>
+<script>
+(function(){
+  var t0 = Date.now();
+  function tick(){
+    var root = document.getElementById('dc-root');
+    var loader = document.getElementById('dc-loader');
+    if (!loader) return;
+    if (root && root.children.length > 0) { loader.remove(); return; }
+    if (Date.now() - t0 > 15000) { loader.remove(); return; }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html,body{margin:0;background:#000}
+    body{font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    ::selection{background:#E6C763;color:#000}
+    h1{text-transform:lowercase;margin:0}
+    .stmt{text-wrap:balance}
+    @keyframes hintPulse{0%,100%{opacity:.22}50%{opacity:.5}}
+    @keyframes popScale{0%{transform:scale(1)}35%{transform:scale(1.14)}100%{transform:scale(1)}}
+    @keyframes flashPulse{0%{opacity:0}8%{opacity:1}100%{opacity:0}}
+    @keyframes cinematicIn{from{opacity:0;transform:translateY(46px) scale(.96);letter-spacing:0.01em}to{opacity:1;transform:none;letter-spacing:-0.045em}}
+    @keyframes scrollProgress{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+</helmet>
+
+<div style="background:#000;color:#fff;min-height:100vh;position:relative;overflow-x:hidden">
+
+  <!-- persistent chrome (sits under the gate) -->
+  <a href="/" style="position:fixed;top:26px;left:28px;z-index:30;font-size:13px;font-weight:600;letter-spacing:-0.01em;color:#8E8E93;display:flex;align-items:center;gap:6px" style-hover="color:#fff">
+    <span style="font-size:15px">&#8592;</span>saviour
+  </a>
+  <div style="position:fixed;right:18px;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.08);z-index:20;pointer-events:none">
+    <div style="width:100%;height:100%;background:#E6C763;transform-origin:top;transform:scaleY(0);animation:scrollProgress linear;animation-timeline:scroll(root)"></div>
+  </div>
+
+  <!-- ============ ENTRY GATE ============ -->
+  <div style="position:fixed;inset:0;z-index:50;background:#000;display:flex;align-items:center;justify-content:center;opacity:{{ gateOpacity }};pointer-events:{{ gatePointer }};transition:opacity .9s ease">
+    <div style="position:absolute;top:26px;left:28px;font-size:13px;font-weight:600;color:#8E8E93">&#8592; saviour</div>
+    <div style="text-align:center;padding:0 24px">
+      <div style="font-size:12.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#5a5a5f;margin-bottom:28px">why saviour</div>
+
+      <div style="position:relative;width:min(78vw,300px);height:min(78vw,300px);margin:0 auto;animation:{{ popAnim }}">
+        <svg viewBox="0 0 320 320" style="width:100%;height:100%;display:block;touch-action:none">
+          <path d="M84,150 L146,212 L246,90" fill="none" stroke="#3A3A3D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" style="opacity:{{ guideOpacity }};animation:hintPulse 2.2s ease-in-out infinite"></path>
+          <path d="{{ displayedD }}" fill="none" stroke="{{ strokeColor }}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"></path>
+          <rect x="0" y="0" width="320" height="320" fill="transparent" onPointerDown="{{ onDown }}" onPointerMove="{{ onMove }}" onPointerUp="{{ onUp }}" onPointerCancel="{{ onUp }}" style="cursor:crosshair"></rect>
+        </svg>
+      </div>
+
+      <div style="margin-top:30px;font-size:17px;font-weight:600;color:{{ hintColor }};letter-spacing:-0.01em;transition:color .3s ease">{{ hintText }}</div>
+
+      <sc-if value="{{ showSkip }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;font-size:13.5px;color:#5a5a5f;cursor:pointer" onClick="{{ onSkip }}" style-hover="color:#8E8E93">or tap here to continue</div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- ============ MANIFESTO ============ -->
+  <main>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">01</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(38px,9vw,116px);line-height:1.04;font-weight:800;letter-spacing:-0.05em;max-width:1000px">your money, sorted.<br>just say it.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">02</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:920px">stop filling out forms.<br>just talk.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">03</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:920px">spending patterns you can actually understand.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">04</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:920px">know exactly where to cut back.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">05</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:960px">upi, cash, swiggy, zomato &mdash; it all just works.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">06</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:920px">don&rsquo;t feel like typing?<br>it logs itself.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">07</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(32px,6.6vw,84px);line-height:1.08;font-weight:800;letter-spacing:-0.045em;max-width:920px">wrong category?<br>fix it in a tap.</h1>
+    </section>
+
+    <section style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 28px;text-align:center">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.08em;color:#4a4a4e;margin-bottom:22px">08</div>
+      <h1 class="stmt" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;font-size:clamp(36px,7.4vw,92px);line-height:1.06;font-weight:800;letter-spacing:-0.048em;max-width:960px;margin-bottom:40px">start saving today.<br>it&rsquo;s <span style="color:#E6C763">free</span>.</h1>
+      <a href="/#download" style="animation:cinematicIn 1s cubic-bezier(.16,1,.3,1) both;animation-timeline:view();animation-range:entry 2% cover 40%;display:inline-flex;align-items:center;gap:11px;background:#E6C763;color:#0D0D0F;padding:15px 26px;border-radius:14px;font-weight:700;font-size:15px;box-shadow:0 6px 24px rgba(230,199,99,0.28);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 10px 32px rgba(230,199,99,0.42)">
+        <span style="width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid #0D0D0F;margin-left:3px"></span>
+        get it on google play
+      </a>
+      <div style="margin-top:60px;padding-bottom:40px;font-size:13px;color:#4a4a4e">&copy; 2026 saviour</div>
+    </section>
+
+  </main>
+
+  <!-- cinematic flash overlay -->
+  <div style="position:fixed;inset:0;z-index:55;background:#fff;pointer-events:none;opacity:0;animation:{{ flashAnim }}"></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { phase: 'draw', failCount: 0 };
+
+  componentDidMount() {
+    this._points = [];
+    this._drawing = false;
+    this._reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    document.body.style.overflow = 'hidden';
+    this._timers = [];
+  }
+
+  componentWillUnmount() {
+    document.body.style.overflow = '';
+    (this._timers || []).forEach(t => clearTimeout(t));
+  }
+
+  _t(fn, ms) {
+    const id = setTimeout(fn, this._reduce ? Math.min(ms, 150) : ms);
+    this._timers.push(id);
+  }
+
+  _svgPoint(e, el) {
+    const rect = el.getBoundingClientRect();
+    const sx = 320 / rect.width, sy = 320 / rect.height;
+    return { x: (e.clientX - rect.left) * sx, y: (e.clientY - rect.top) * sy };
+  }
+
+  _pathD(pts) {
+    if (!pts.length) return '';
+    return 'M' + pts.map(p => p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' L');
+  }
+
+  _analyze(pts) {
+    if (pts.length < 6) return false;
+    let minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9, vIdx = 0, maxYv = -1e9;
+    pts.forEach((p, i) => {
+      minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x);
+      minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y);
+      if (p.y > maxYv) { maxYv = p.y; vIdx = i; }
+    });
+    if ((maxX - minX) < 45 || (maxY - minY) < 45) return false;
+    if (vIdx === 0 || vIdx === pts.length - 1) return false;
+    const start = pts[0], vertex = pts[vIdx], end = pts[pts.length - 1];
+    const dx1 = vertex.x - start.x, dy1 = vertex.y - start.y;
+    const dx2 = end.x - vertex.x, dy2 = end.y - vertex.y;
+    if (dy1 < 12) return false;
+    if (dy2 > -12 || dx2 < 12) return false;
+    const lenA = Math.hypot(dx1, dy1), lenB = Math.hypot(dx2, dy2);
+    if (lenB < lenA * 1.05) return false;
+    if (end.x <= start.x) return false;
+    return true;
+  }
+
+  onDown(e) {
+    if (this.state.phase !== 'draw') return;
+    e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId);
+    this._drawing = true;
+    this._points = [this._svgPoint(e, e.target)];
+    this.forceUpdate();
+  }
+
+  onMove(e) {
+    if (!this._drawing || this.state.phase !== 'draw') return;
+    this._points.push(this._svgPoint(e, e.target));
+    this.forceUpdate();
+  }
+
+  onUp(e) {
+    if (!this._drawing) return;
+    this._drawing = false;
+    const pts = this._points;
+    if (pts.length < 6) { this._points = []; this.forceUpdate(); return; }
+    if (this._analyze(pts)) {
+      this.setState({ phase: 'recognized' });
+      this._t(() => this.setState({ phase: 'flash' }), 380);
+      this._t(() => this.setState({ phase: 'unlocking' }), 480);
+      this._t(() => { this.setState({ phase: 'unlocked' }); document.body.style.overflow = ''; }, 480 + 900);
+    } else {
+      const fc = this.state.failCount + 1;
+      this.setState({ phase: 'failed', failCount: fc });
+      this._t(() => { this._points = []; this.setState({ phase: 'draw' }); }, 750);
+    }
+  }
+
+  onSkip() {
+    this.setState({ phase: 'unlocking' });
+    this._t(() => { this.setState({ phase: 'unlocked' }); document.body.style.overflow = ''; }, 500);
+  }
+
+  renderVals() {
+    const phase = this.state.phase;
+    const pts = this._points || [];
+    const recognizedLook = phase === 'recognized' || phase === 'flash' || phase === 'unlocking' || phase === 'unlocked';
+    const displayedD = recognizedLook ? 'M84,150 L146,212 L246,90' : this._pathD(pts);
+    const gateOpacity = (phase === 'unlocking' || phase === 'unlocked') ? 0 : 1;
+    const hintText = phase === 'failed' ? 'try again' : (phase === 'recognized' || recognizedLook) ? 'got it.' : 'draw a check to begin';
+    const hintColor = phase === 'failed' ? '#FF6B6B' : (recognizedLook ? '#5FCB8C' : '#fff');
+    return {
+      displayedD: displayedD,
+      strokeColor: phase === 'failed' ? '#6a6a6e' : '#E6C763',
+      guideOpacity: pts.length > 0 && phase === 'draw' ? 0 : 1,
+      popAnim: (phase === 'recognized' || phase === 'flash') ? 'popScale .5s cubic-bezier(.34,1.56,.64,1) both' : 'none',
+      flashAnim: phase === 'flash' ? 'flashPulse .7s ease both' : 'none',
+      gateOpacity: gateOpacity,
+      gatePointer: gateOpacity === 0 ? 'none' : 'auto',
+      hintText: hintText,
+      hintColor: hintColor,
+      showSkip: this.state.failCount >= 2 && phase !== 'unlocked' && phase !== 'unlocking',
+      onDown: (e) => this.onDown(e),
+      onMove: (e) => this.onMove(e),
+      onUp: (e) => this.onUp(e),
+      onSkip: () => this.onSkip()
+    };
+  }
+}
+</script>
+</body>
+</html>
