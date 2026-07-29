@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<div id="dc-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0D0D0F">
+  <div style="width:28px;height:28px;border-radius:50%;border:3px solid rgba(230,199,99,0.18);border-top-color:#E6C763;animation:dc-loader-spin .7s linear infinite"></div>
+</div>
+<style>@keyframes dc-loader-spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){#dc-loader *{animation:none!important}}</style>
+<script>
+(function(){
+  var t0 = Date.now();
+  function tick(){
+    var root = document.getElementById('dc-root');
+    var loader = document.getElementById('dc-loader');
+    if (!loader) return;
+    if (root && root.children.length > 0) { loader.remove(); return; }
+    if (Date.now() - t0 > 15000) { loader.remove(); return; }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annual Income Calculator - Convert Pay to Yearly | Saviour</title>
+  <meta name="description" content="Free annual income calculator. Convert hourly, daily, weekly or monthly pay into your total yearly income.">
+  <link rel="canonical" href="https://www.saviourmoney.com/finance-tools/annual-income-calculator">
+  <meta property="og:title" content="Annual Income Calculator | Saviour">
+  <meta property="og:description" content="Convert hourly, monthly or weekly pay to yearly.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Saviour","item":"https://www.saviourmoney.com/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://www.saviourmoney.com/finance-tools"},{"@type":"ListItem","position":3,"name":"Annual Income Calculator","item":"https://www.saviourmoney.com/finance-tools/annual-income-calculator"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Annual Income Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do I convert hourly pay to annual income?","acceptedAnswer":{"@type":"Answer","text":"Multiply your hourly rate by the number of hours you work per week, then multiply by 52 weeks to get your annual income."}},
+    {"@type":"Question","name":"Does this account for unpaid leave?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes you work all 52 weeks of the year. If you take significant unpaid leave, your actual annual income will be lower."}},
+    {"@type":"Question","name":"Should I use gross or net pay?","acceptedAnswer":{"@type":"Answer","text":"Use your gross pay rate for this calculator; it estimates gross annual income before tax and other deductions."}},
+    {"@type":"Question","name":"Why is my freelance annual income different from a salaried equivalent?","acceptedAnswer":{"@type":"Answer","text":"Freelance income usually excludes benefits like PF, insurance and paid leave that salaried CTC includes, so like-for-like comparisons need adjustment."}}
+  ]}</script>
+  <style>
+    html,body{margin:0}
+    @media (max-width:640px){.nav-link{display:none}.nav-cta{padding:9px 16px!important;font-size:13px!important}}
+    body{font-family:'Archivo',system-ui,sans-serif;background:#0D0D0F;color:#fff;-webkit-font-smoothing:antialiased}
+    ::selection{background:#E6C763;color:#0D0D0F}
+    a{text-decoration:none;color:inherit}
+    a:hover{color:#E6C763}
+    h1,h2,h3{letter-spacing:-0.04em;margin:0}
+    input[type=number]{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
+    input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    select{background:#0D0D0F;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 14px;font-size:15px;color:#fff;font-family:inherit;outline:none;width:100%;box-sizing:border-box}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important}}
+  </style>
+</helmet>
+
+<div style="background:#0D0D0F;overflow-x:hidden;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(13,13,15,0.72);border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:1180px;margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between">
+      <a href="/" style="display:flex;align-items:center;gap:11px">
+        <img src="/uploads/Icon-App-1024x1024@1x.png" alt="Saviour" style="width:34px;height:34px;border-radius:10px;display:block;box-shadow:0 0 18px rgba(230,199,99,0.18)">
+        <span style="font-weight:700;font-size:19px;letter-spacing:-0.025em;text-transform:none">Saviour</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:34px">
+        <a class="nav-link" href="/finance-tools" style="font-size:14.5px;color:#8E8E93;font-weight:500" style-hover="color:#fff">Finance Tools</a>
+        <a class="nav-cta" href="/#download" style="background:#E6C763;color:#0D0D0F;font-weight:700;font-size:14.5px;padding:10px 20px;border-radius:11px" style-hover="transform:translateY(-2px)">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <div style="max-width:820px;margin:0 auto;padding:18px 28px 0;display:flex;align-items:center;justify-content:space-between">
+    <a href="/" style="display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#8E8E93" style-hover="color:#fff"><span style="font-size:15px">&#8592;</span>Back</a>
+    <div style="font-size:13px;color:#6A6A70"><a href="/" style="color:#6A6A70" style-hover="color:#E6C763">Saviour</a> / <a href="/finance-tools" style="color:#6A6A70" style-hover="color:#E6C763">Finance Tools</a> / Annual Income Calculator</div>
+  </div>
+
+  <main style="max-width:820px;margin:0 auto;padding:36px 28px 100px">
+    <h1 style="font-size:clamp(32px,5.4vw,52px);font-weight:800;line-height:1.05;margin-bottom:12px">Annual income calculator</h1>
+    <p style="font-size:17px;line-height:1.55;color:#A8A8AD;margin-bottom:36px;max-width:600px">Convert your hourly, daily, weekly or monthly pay rate into total yearly income.</p>
+
+    <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px;margin-bottom:28px">
+      <div style="margin-bottom:22px">
+        <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:8px">Pay rate</label>
+        <input type="number" value="{{ rate }}" onInput="{{ onRate }}">
+      </div>
+      <div style="margin-bottom:22px">
+        <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:8px">Pay frequency</label>
+        <select value="{{ freq }}" onChange="{{ onFreq }}">
+          <option value="hourly">Hourly</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
+      <sc-if value="{{ showHours }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <label style="font-size:14px;font-weight:600;color:#C9C9CE;display:block;margin-bottom:8px">Hours worked per week</label>
+          <input type="number" value="{{ hoursPerWeek }}" onInput="{{ onHours }}">
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background:linear-gradient(160deg,rgba(230,199,99,0.12),rgba(230,199,99,0.03));border:1px solid rgba(230,199,99,0.35);border-radius:20px;padding:28px;margin-bottom:44px;text-align:center">
+      <div style="font-size:13.5px;color:#C9AE6F;font-weight:600;margin-bottom:8px">Your annual income</div>
+      <div style="font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-0.03em;margin-bottom:6px">{{ annualFmt }}</div>
+      <div style="font-size:14px;color:#8E8E93">{{ monthlyFmt }} per month</div>
+    </div>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:16px">How this is calculated</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:#A8A8AD;margin-bottom:16px">Whatever pay period you're given, this tool scales it up to a full year using standard conventions: 52 weeks, 260 working days, or 12 months.</p>
+      <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px 20px;font-family:ui-monospace,monospace;font-size:14.5px;color:#E6C763;margin-bottom:16px">Annual = Hourly Rate &times; Hours/Week &times; 52</div>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:22px"><strong style="color:#C9C9CE">Example:</strong> &#8377;500/hour at 40 hours/week comes to &#8377;10,40,000 a year.</p>
+      <h3 style="font-size:17px;font-weight:700;margin-bottom:12px">Tips for comparing offers</h3>
+      <ul style="font-size:14.5px;line-height:1.9;color:#A8A8AD;padding-left:20px;margin:0">
+        <li>Always compare annualised numbers, not raw hourly or monthly figures.</li>
+        <li>Factor in benefits (PF, insurance, bonus) missing from a freelance rate.</li>
+        <li>Account for unpaid leave or slow months if your work isn't steady year-round.</li>
+        <li>Use take-home, not gross, when comparing your real spending power.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:18px">Frequently asked questions</h2>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <details style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:16px 18px;margin-bottom:10px">
+          <summary style="font-size:15px;font-weight:600;cursor:pointer">{{ f.q }}</summary>
+          <p style="font-size:14px;line-height:1.65;color:#A8A8AD;margin:12px 0 0">{{ f.a }}</p>
+        </details>
+      </sc-for>
+    </section>
+
+    <section style="margin-bottom:44px">
+      <h2 style="font-size:20px;font-weight:700;margin-bottom:18px">Related tools</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px">
+        <a href="/finance-tools/take-home-salary-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Take Home Salary Calculator</div><div style="font-size:12.5px;color:#8E8E93">See in-hand pay after tax</div></a>
+        <a href="/finance-tools/salary-breakdown-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Salary Breakdown Calculator</div><div style="font-size:12.5px;color:#8E8E93">See where a CTC goes</div></a>
+        <a href="/finance-tools/monthly-budget-calculator" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">Monthly Budget Calculator</div><div style="font-size:12.5px;color:#8E8E93">Plan around your income</div></a>
+        <a href="/finance-tools" style="text-decoration:none;display:block;background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px" style-hover="border-color:rgba(230,199,99,0.35)"><div style="font-size:14.5px;font-weight:700;margin-bottom:4px">All Finance Tools</div><div style="font-size:12.5px;color:#8E8E93">Browse every calculator</div></a>
+      </div>
+    </section>
+
+    <div style="background:linear-gradient(160deg,#161618,#0D0D0F);border:1px solid rgba(230,199,99,0.25);border-radius:20px;padding:36px 28px;text-align:center">
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:10px">Know your yearly number? Budget it with Saviour.</h2>
+      <p style="font-size:14.5px;color:#A8A8AD;margin-bottom:22px">Track income and spending together, automatically.</p>
+      <a href="/#download" style="display:inline-flex;align-items:center;gap:10px;background:#E6C763;color:#0D0D0F;padding:13px 22px;border-radius:14px;font-weight:700;font-size:14.5px" style-hover="transform:translateY(-2px)">Download App</a>
+    </div>
+  </main>
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 28px;text-align:center;color:#4a4a4e;font-size:13px">&copy; 2026 saviour</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+function inr(n) {
+  n = Math.round(n || 0);
+  const neg = n < 0; n = Math.abs(n);
+  const s = n.toString(), last3 = s.slice(-3), rest = s.slice(0, -3);
+  const withCommas = rest ? rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3 : last3;
+  return (neg ? '-' : '') + '\u20B9' + withCommas;
+}
+class Component extends DCLogic {
+  state = { rate: 500, freq: 'hourly', hoursPerWeek: 40 };
+  renderVals() {
+    const { rate, freq, hoursPerWeek } = this.state;
+    let annual;
+    if (freq === 'hourly') annual = rate * hoursPerWeek * 52;
+    else if (freq === 'daily') annual = rate * 5 * 52;
+    else if (freq === 'weekly') annual = rate * 52;
+    else annual = rate * 12;
+    return {
+      rate, freq, hoursPerWeek,
+      showHours: freq === 'hourly',
+      onRate: (e) => this.setState({ rate: Number(e.target.value) }),
+      onFreq: (e) => this.setState({ freq: e.target.value }),
+      onHours: (e) => this.setState({ hoursPerWeek: Number(e.target.value) }),
+      annualFmt: inr(annual),
+      monthlyFmt: inr(annual / 12),
+      faqs: [
+        { q: 'How do I convert hourly pay to annual income?', a: 'Multiply your hourly rate by the number of hours you work per week, then multiply by 52 weeks to get your annual income.' },
+        { q: 'Does this account for unpaid leave?', a: 'This calculator assumes you work all 52 weeks of the year. If you take significant unpaid leave, your actual annual income will be lower.' },
+        { q: 'Should I use gross or net pay?', a: 'Use your gross pay rate for this calculator; it estimates gross annual income before tax and other deductions.' },
+        { q: 'Why is my freelance annual income different from a salaried equivalent?', a: 'Freelance income usually excludes benefits like PF, insurance and paid leave that salaried CTC includes, so like-for-like comparisons need adjustment.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
