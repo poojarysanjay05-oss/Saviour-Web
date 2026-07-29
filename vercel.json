@@ -4,6 +4,8 @@
   "rewrites": [
     { "source": "/", "destination": "/Saviour Homepage.dc.html" },
     { "source": "/why", "destination": "/Saviour Why.dc.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/termsofservice", "destination": "/terms.html" },
     { "source": "/finance-tools", "destination": "/Finance Tools.dc.html" },
     { "source": "/finance-tools/50-30-20-budget-calculator", "destination": "/Calculator - 50-30-20 Budget.dc.html" },
     { "source": "/finance-tools/annual-income-calculator", "destination": "/Calculator - Annual Income.dc.html" },
