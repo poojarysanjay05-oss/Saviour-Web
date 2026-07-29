@@ -111,7 +111,7 @@
       <h2 style="font-size:24px;font-weight:700;margin-bottom:16px">How take-home salary is calculated</h2>
       <p style="font-size:15.5px;line-height:1.7;color:#A8A8AD;margin-bottom:16px">Your CTC includes your basic salary, HRA, allowances, and your employer's PF contribution. Take-home pay subtracts your own PF contribution and income tax from your gross salary.</p>
       <div style="background:#161618;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px 20px;font-family:ui-monospace,monospace;font-size:14.5px;color:#E6C763;margin-bottom:16px">Take-home = CTC &minus; Employee PF &minus; Income Tax</div>
-      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:22px"><strong style="color:#C9C9CE">Example:</strong> a &#8377;12,00,000 CTC works out to roughly &#8377;89,000&ndash;&#8377;93,000 in-hand per month, depending on your exact salary structure.</p>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:22px"><strong style="color:#C9C9CE">Example:</strong> a &#8377;12,00,000 CTC works out to roughly &#8377;98,000 in-hand per month under the new regime (FY 2025-26) &mdash; taxable income falls within the &#8377;12,00,000 rebate threshold, so no income tax is due. A &#8377;18,00,000 CTC, by contrast, works out to around &#8377;1,36,000 in-hand.</p>
       <h3 style="font-size:17px;font-weight:700;margin-bottom:12px">Tips to increase your in-hand pay</h3>
       <ul style="font-size:14.5px;line-height:1.9;color:#A8A8AD;padding-left:20px;margin:0">
         <li>Use tax-saving investments under Section 80C if you're on the old regime.</li>
@@ -159,14 +159,14 @@ function inr(n) {
   return (neg ? '-' : '') + '\u20B9' + withCommas;
 }
 function newRegimeTax(taxable) {
-  if (taxable <= 700000) return 0;
-  const slabs = [[300000,0],[300000,0.05],[300000,0.10],[300000,0.15],[300000,0.20],[Infinity,0.30]];
-  let remaining = taxable, tax = 0;
-  for (const [size, rate] of slabs) {
-    const amt = Math.min(remaining, size);
-    tax += amt * rate;
-    remaining -= amt;
-    if (remaining <= 0) break;
+  if (taxable <= 1200000) return 0;
+  const brackets = [[400000,0],[800000,0.05],[1200000,0.10],[1600000,0.15],[2000000,0.20],[2400000,0.25],[Infinity,0.30]];
+  let tax = 0, prev = 0;
+  for (let i = 0; i < brackets.length; i++) {
+    const upper = brackets[i][0], rate = brackets[i][1];
+    if (taxable > prev) tax += (Math.min(taxable, upper) - prev) * rate;
+    prev = upper;
+    if (taxable <= upper) break;
   }
   return tax * 1.04;
 }
@@ -180,7 +180,7 @@ class Component extends DCLogic {
     const pf = Math.min(basic, 180000) * 0.12;
     const special = Math.max(0, ctc - basic - hra - pf);
     const gross = ctc - pf;
-    const taxable = Math.max(0, gross - 50000);
+    const taxable = Math.max(0, gross - 75000);
     const tax = newRegimeTax(taxable);
     const annualTakeHome = ctc - pf - tax;
     const monthly = annualTakeHome / 12;
