@@ -109,8 +109,12 @@
         <input type="range" min="0" max="150000" step="5000" value="{{ deduction80c }}" onInput="{{ onDeduction80c }}" style="width:100%;display:block">
       </div>
       <div style="margin-bottom:26px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">HRA exemption + home loan interest <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionHraFmt }}</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">HRA exemption <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionHraFmt }}</span></div>
         <input type="range" min="0" max="1000000" step="5000" value="{{ deductionHra }}" onInput="{{ onDeductionHra }}" style="width:100%;display:block">
+      </div>
+      <div style="margin-bottom:26px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Home loan interest <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionHomeLoanFmt }}</span></div>
+        <input type="range" min="0" max="200000" step="5000" value="{{ deductionHomeLoan }}" onInput="{{ onDeductionHomeLoan }}" style="width:100%;display:block">
       </div>
       <div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Other exemptions <span style="color:#6A6A70;font-weight:500">(NPS 80CCD(1B), 80TTA, 80E, LTA &mdash; old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionOtherFmt }}</span></div>
@@ -288,27 +292,28 @@ function finalTax(taxableIncome, regime, ageGroup) {
 }
 
 class Component extends DCLogic {
-  state = { income: 1200000, ageGroup: 'below60', deduction80c: 150000, deductionHra: 100000, deductionOther: 0 };
+  state = { income: 1200000, ageGroup: 'below60', deduction80c: 150000, deductionHra: 100000, deductionHomeLoan: 0, deductionOther: 0 };
 
   renderVals() {
-    const { income, ageGroup, deduction80c, deductionHra, deductionOther } = this.state;
+    const { income, ageGroup, deduction80c, deductionHra, deductionHomeLoan, deductionOther } = this.state;
     const oldStd = 50000, newStd = 75000;
     const newTaxable = Math.max(0, income - newStd);
-    const oldTaxable = Math.max(0, income - oldStd - deduction80c - deductionHra - deductionOther);
+    const oldTaxable = Math.max(0, income - oldStd - deduction80c - deductionHra - deductionHomeLoan - deductionOther);
     const oldTax = finalTax(oldTaxable, 'old', ageGroup);
     const newTax = finalTax(newTaxable, 'new', ageGroup);
     const diff = Math.abs(oldTax - newTax);
     const better = oldTax === newTax ? 'equal' : (oldTax < newTax ? 'old' : 'new');
 
     return {
-      income, ageGroup, deduction80c, deductionHra, deductionOther,
+      income, ageGroup, deduction80c, deductionHra, deductionHomeLoan, deductionOther,
       incomeFmt: inr(income),
       deduction80cFmt: inr(deduction80c),
       deductionHraFmt: inr(deductionHra),
+      deductionHomeLoanFmt: inr(deductionHomeLoan),
       deductionOtherFmt: inr(deductionOther),
       oldStdFmt: inr(oldStd),
       newStdFmt: inr(newStd),
-      oldOtherDeductFmt: inr(deduction80c + deductionHra + deductionOther),
+      oldOtherDeductFmt: inr(deduction80c + deductionHra + deductionHomeLoan + deductionOther),
       oldTaxableFmt: inr(oldTaxable),
       newTaxableFmt: inr(newTaxable),
       oldTaxFmt: inr(oldTax),
@@ -325,6 +330,7 @@ class Component extends DCLogic {
       onIncome: (e) => this.setState({ income: Number(e.target.value) }),
       onDeduction80c: (e) => this.setState({ deduction80c: Number(e.target.value) }),
       onDeductionHra: (e) => this.setState({ deductionHra: Number(e.target.value) }),
+      onDeductionHomeLoan: (e) => this.setState({ deductionHomeLoan: Number(e.target.value) }),
       onDeductionOther: (e) => this.setState({ deductionOther: Number(e.target.value) }),
       onAgeBelow60: () => this.setState({ ageGroup: 'below60' }),
       onAgeSenior: () => this.setState({ ageGroup: 'senior' }),
