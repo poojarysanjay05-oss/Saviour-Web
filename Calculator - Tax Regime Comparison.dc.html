@@ -108,9 +108,13 @@
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Section 80C &amp; 80D investments <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deduction80cFmt }}</span></div>
         <input type="range" min="0" max="150000" step="5000" value="{{ deduction80c }}" onInput="{{ onDeduction80c }}" style="width:100%;display:block">
       </div>
-      <div>
+      <div style="margin-bottom:26px">
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">HRA exemption + home loan interest <span style="color:#6A6A70;font-weight:500">(old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionHraFmt }}</span></div>
         <input type="range" min="0" max="1000000" step="5000" value="{{ deductionHra }}" onInput="{{ onDeductionHra }}" style="width:100%;display:block">
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><label style="font-size:14px;font-weight:600;color:#C9C9CE">Other exemptions <span style="color:#6A6A70;font-weight:500">(NPS 80CCD(1B), 80TTA, 80E, LTA &mdash; old regime only)</span></label><span style="font-size:16px;font-weight:700;color:#E6C763">{{ deductionOtherFmt }}</span></div>
+        <input type="range" min="0" max="500000" step="5000" value="{{ deductionOther }}" onInput="{{ onDeductionOther }}" style="width:100%;display:block">
       </div>
     </div>
 
@@ -175,6 +179,7 @@
       <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">Senior citizens (60&ndash;80) get a nil slab up to &#8377;3,00,000, and super senior citizens (80+) up to &#8377;5,00,000, under the old regime &mdash; the 5%/20%/30% rates above those limits stay the same.</p>
       <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">Under Section 87A, tax is fully rebated (reduced to zero, before cess) if taxable income is up to &#8377;12,00,000 in the new regime, or up to &#8377;5,00,000 in the old regime.</p>
       <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">HRA exemption has no fixed rupee cap &mdash; it's the least of actual HRA received, rent paid minus 10% of salary, or 40&ndash;50% of basic salary, so it can run well past &#8377;2,00,000 for high earners in metro cities. Home loan interest, by contrast, is capped at &#8377;2,00,000 a year for a self-occupied property under Section 24(b).</p>
+      <p style="font-size:14.5px;line-height:1.7;color:#8E8E93;margin-bottom:16px">"Other exemptions" covers old-regime-only deductions such as the extra &#8377;50,000 NPS contribution under Section 80CCD(1B), savings account interest under Section 80TTA (up to &#8377;10,000), education loan interest under Section 80E (no cap), and Leave Travel Allowance (LTA). None of these are available under the new regime.</p>
       <p style="font-size:14.5px;line-height:1.7;color:#8E8E93">Above &#8377;50 lakh, a surcharge of 10%&ndash;37% (old regime) or up to 25% (new regime) applies on the tax, with marginal relief so the surcharge never eats more than the extra income earned past each threshold.</p>
     </section>
 
@@ -283,26 +288,27 @@ function finalTax(taxableIncome, regime, ageGroup) {
 }
 
 class Component extends DCLogic {
-  state = { income: 1200000, ageGroup: 'below60', deduction80c: 150000, deductionHra: 100000 };
+  state = { income: 1200000, ageGroup: 'below60', deduction80c: 150000, deductionHra: 100000, deductionOther: 0 };
 
   renderVals() {
-    const { income, ageGroup, deduction80c, deductionHra } = this.state;
+    const { income, ageGroup, deduction80c, deductionHra, deductionOther } = this.state;
     const oldStd = 50000, newStd = 75000;
     const newTaxable = Math.max(0, income - newStd);
-    const oldTaxable = Math.max(0, income - oldStd - deduction80c - deductionHra);
+    const oldTaxable = Math.max(0, income - oldStd - deduction80c - deductionHra - deductionOther);
     const oldTax = finalTax(oldTaxable, 'old', ageGroup);
     const newTax = finalTax(newTaxable, 'new', ageGroup);
     const diff = Math.abs(oldTax - newTax);
     const better = oldTax === newTax ? 'equal' : (oldTax < newTax ? 'old' : 'new');
 
     return {
-      income, ageGroup, deduction80c, deductionHra,
+      income, ageGroup, deduction80c, deductionHra, deductionOther,
       incomeFmt: inr(income),
       deduction80cFmt: inr(deduction80c),
       deductionHraFmt: inr(deductionHra),
+      deductionOtherFmt: inr(deductionOther),
       oldStdFmt: inr(oldStd),
       newStdFmt: inr(newStd),
-      oldOtherDeductFmt: inr(deduction80c + deductionHra),
+      oldOtherDeductFmt: inr(deduction80c + deductionHra + deductionOther),
       oldTaxableFmt: inr(oldTaxable),
       newTaxableFmt: inr(newTaxable),
       oldTaxFmt: inr(oldTax),
@@ -319,6 +325,7 @@ class Component extends DCLogic {
       onIncome: (e) => this.setState({ income: Number(e.target.value) }),
       onDeduction80c: (e) => this.setState({ deduction80c: Number(e.target.value) }),
       onDeductionHra: (e) => this.setState({ deductionHra: Number(e.target.value) }),
+      onDeductionOther: (e) => this.setState({ deductionOther: Number(e.target.value) }),
       onAgeBelow60: () => this.setState({ ageGroup: 'below60' }),
       onAgeSenior: () => this.setState({ ageGroup: 'senior' }),
       onAgeSuper: () => this.setState({ ageGroup: 'super' }),
